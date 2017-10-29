@@ -149,7 +149,7 @@ var up = groups.append("text")
                 .attr("dy", ".55em")
                 .attr("text-anchor", "middle")
                 .attr("fill", "white")
-                .style("font-size", "1.5em")
+                .style("font-size", "0.3em")
                 .attr("class", "hidden")
                 .text("ˆ"); 
 
