@@ -278,8 +278,8 @@ function transition(svg) {
   point = c;
 
   svg.transition()
-      .delay(500)
-      .duration(3000)
+      .delay(3500)
+      .duration(10000)
       .call(zoom.transform, transform)
       .on("end", function() { 
         if(play){
