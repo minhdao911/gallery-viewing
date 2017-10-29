@@ -73,7 +73,7 @@ var numberOfImgs = data.length,
     numberOfImgsInARow = 30,
     imgWidth = width/numberOfImgsInARow;
 
-var points = d3.range(1500).map(pointMap(10)),
+var points = d3.range(numberOfImgs).map(pointMap()),
     point = points.pop();
 
 var btn = document.querySelector("button");
@@ -288,13 +288,13 @@ function transition(svg) {
       });
 }
 
-function pointMap(radius) {
-  var theta = Math.sqrt(2);
+function pointMap() {
   return function(i) {
-    var r = radius * Math.sqrt(i), a = theta * i;
+  	x++;
+  	if(i!==0 && i%numberOfImgsInARow==0) {y++ ; x = 0}
     return [
-      width / 2 + r * Math.cos(a),
-      height / 2 + r * Math.sin(a)
+      x*imgWidth+imgWidth/2,
+      y*imgWidth+imgWidth/2
     ];
   };
 }
