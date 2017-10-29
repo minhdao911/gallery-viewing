@@ -1,14 +1,10 @@
 var width = screen.width,
     height = screen.height,
-    imgWidth = width/4,
     rowIndex = 0,
-    colIndex = -1;
-    
-var radius = 12;
-var play = false;
-
-var points = d3.range(1500).map(pointMap(10)),
-    point = points.pop();
+    colIndex = -1,
+    radius = 1.8,
+    x=-1, y=0,
+    play = false;
     
 var data = [
     {
@@ -73,6 +69,13 @@ var data = [
     }
 ];
 
+var numberOfImgs = data.length,
+    numberOfImgsInARow = 30,
+    imgWidth = width/numberOfImgsInARow;
+
+var points = d3.range(1500).map(pointMap(10)),
+    point = points.pop();
+
 var btn = document.querySelector("button");
 
 var svg = d3.select("body").append("svg")
@@ -93,13 +96,13 @@ var image = groups.append("svg:image")
         .attr("height", imgWidth)
         .attr("x", function(d, i) {
             colIndex++;
-            if(i%4==0){
+            if(i%numberOfImgsInARow==0){
                 colIndex = 0;
             }
             return colIndex*imgWidth;
         })
         .attr("y", function(d, i) {
-            if(i!==0 && i%4===0){
+            if(i!==0 && i%numberOfImgsInARow===0){
                 rowIndex+=1;
             }
             return rowIndex*imgWidth;
@@ -111,16 +114,16 @@ var circles = groups.append("circle")
                         colIndex = -1;
                     }
                     colIndex++;
-                    if(i%4===0)
+                    if(i%numberOfImgsInARow===0)
                         colIndex = 0;
-                    return colIndex*imgWidth+imgWidth-25;
+                    return colIndex*imgWidth+imgWidth-4;
                 })
                 .attr("cy", function(d,i){
                     if(i===0)
                         rowIndex = 0;
-                    else if(i%4===0)
+                    else if(i%numberOfImgsInARow===0)
                         rowIndex++;
-                    return rowIndex*imgWidth + imgWidth-25;
+                    return rowIndex*imgWidth + imgWidth-4;
                 })
                 .attr("r", radius)
                 .attr("class", "hidden")
@@ -132,16 +135,16 @@ var up = groups.append("text")
                         colIndex = -1;
                     }
                     colIndex++;
-                    if(i%4===0)
+                    if(i%numberOfImgsInARow===0)
                         colIndex = 0;
-                    return colIndex*imgWidth+imgWidth-25;
+                    return colIndex*imgWidth+imgWidth-4;
                 })
                 .attr("y", function(d,i) {
                     if(i===0)
                         rowIndex = 0;
-                    else if(i%4===0)
+                    else if(i%numberOfImgsInARow===0)
                         rowIndex++;
-                    return rowIndex*imgWidth + imgWidth-25;
+                    return rowIndex*imgWidth + imgWidth-4;
                 })
                 .attr("dy", ".55em")
                 .attr("text-anchor", "middle")
@@ -156,14 +159,14 @@ var foreignObjects = groups.append("foreignObject")
             colIndex = -1;
         }
         colIndex++;
-        if(i%4===0)
+        if(i%numberOfImgsInARow===0)
             colIndex = 0;
         return colIndex*imgWidth;
     })
     .attr("y",function (d, i) { 
         if(i===0)
             rowIndex = 0;
-        else if(i%4===0)
+        else if(i%numberOfImgsInARow===0)
             rowIndex++;
         return rowIndex*imgWidth + imgWidth;
     })
