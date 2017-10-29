@@ -224,7 +224,7 @@ downs.on("click", function(){
     circle.attr("class", "show");
 });
 
-var zoom = d3.zoom().scaleExtent([1, 8])
+var zoom = d3.zoom().scaleExtent([1, 60])
     .on("zoom", zoom);
 
 svg.call(zoom);
@@ -250,7 +250,7 @@ function zoom() {
   var indexStart = transform.indexOf("scale");
   var scale = transform.substring(indexStart+6, transform.length-1);
   if(!play){
-      if(scale>=1.7 && scale <= 2.5){
+      if(scale>=12 && scale <= 20){
           d3.selectAll("circle").attr("class", "show");
           d3.selectAll("text").attr("class", "show");
       }else{
@@ -261,7 +261,7 @@ function zoom() {
 }
 
 function transform() {
-  var i = Math.floor(Math.random()*8)+1;
+  var i = Math.floor(Math.random()*60)+1;
   return d3.zoomIdentity
       .translate(width/2, height/2)
       .scale(i)
