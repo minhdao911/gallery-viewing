@@ -1,0 +1,121 @@
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: white;
+  overflow-y: scroll;
+}
+
+.img-container {
+  margin: 20px auto;
+}
+
+.container .full-size {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  height: 100%;
+}
+
+.image:hover {
+  cursor: zoom-in;
+}
+
+.hidden {
+  display:none;
+}
+
+.metadata, .poem {
+  border-top: 2px solid #eee;
+  padding-top: 20px;
+}
+
+.zoombtn {
+  position: fixed;
+  bottom: 20px;
+}
+
+.zoombtn .btn{
+  display: block;
+  padding: 0;
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+}
+
+.closebtn {
+  position: fixed;
+  top: 10px;
+  right: 40px;
+  font-size: 1.5em;
+}
+
+.closebtn:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.4s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+  color: orange;
+}
+
+.backbtn {
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  font-size: 1.5em;
+}
+
+.backbtn:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+  .img-container {
+    width: 450px;
+    height: 450px;
+  }
+  .prev, .next {
+    top: 230px;
+    padding: 0 8%;
+  }
+  .zoombtn {
+    right: 5%;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .img-container {
+    width: 280px;
+    height: 280px;
+  }
+  .prev, .next {
+    top: 130px;
+    padding: 0 3%;
+  }
+  .zoombtn {
+    right: 1%;
+  }
+}
