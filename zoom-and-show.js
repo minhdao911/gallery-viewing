@@ -17,6 +17,7 @@ var numberOfImgs,
     imgWidth = width/numberOfImgsInARow;
 
 var playBtn = $(".play"),
+    pauseBtn = $(".pause"),
     mapContainer = $(".map");
     
 var svgMain = d3.select(".map").append("svg")
@@ -27,7 +28,7 @@ var defs = svgMain.append('svg:defs');
 
 var gMain = svgMain.append("g");
     
-d3.json("data.json", function(err, d) {
+d3.json("/assets/data.json", function(err, d) {
     if(err){
         console.log(err);
     }else{
@@ -89,15 +90,15 @@ var zoomMain = d3.zoom().scaleExtent([1, 60])
 svgMain.call(zoomMain);
         
 playBtn.on("click", function(){
-//   playBtn.classList.toggle("play")
-  play = !play;
-  if(play){
+    play = true;
     svgMain
       .call(zoomMain.transform, transform)
       .call(transition);
-  }else{
-      svgMain.call(zoomMain);
-  }
+});
+
+pauseBtn.on("click", function(){
+    play = false;
+    svgMain.call(zoomMain);
 });
 
 var zoomIn = d3.select(".zoom-in")
@@ -190,7 +191,6 @@ var zoomSub = d3.zoom().scaleExtent([1, 3])
     .on("zoom", zoom);
 
 var img = gSub.append("svg:image")
-        // .attr("xlink:href", data[i].image)
         .attr("width", imgContainerWidth)
         .attr("height", imgContainerWidth)
         .attr("x", 0)
@@ -303,7 +303,7 @@ $(window).resize(function(){
 function showImgAndData(d){
     image.attr("src", d.image);
     img.attr("xlink:href", d.image);
-    $(".poem").html("<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, ipsum est sit tenetur fuga doloremque ducimus officia nostrum id vel.</p>"); //d.poem
+    $(".poem").html("<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam, ipsum est sit tenetur fuga doloremque ducimus officia nostrum id vel.</p>");
     $(".artist span").text(d.artist);
     $(".desc span").text(d.description);
 }

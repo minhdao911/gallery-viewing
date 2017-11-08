@@ -51,6 +51,16 @@ $(".colors span").on("click", function(){
     );
 });
 
+$(".play").on("click", function(){
+  $(this).addClass("hidden");
+  $(".pause").removeClass("hidden");
+});
+
+$(".pause").on("click", function(){
+  $(this).addClass("hidden");
+  $(".play").removeClass("hidden");
+});
+
 $(".expand").on("click", function(){
   $(".map-container").height(height);
   $(".options").removeClass("abs-pos");
