@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.0/pagination.css" type="text/css" />
+        <link rel="stylesheet" href="./stylesheets/index.css" type="text/css" />
+        <link rel="stylesheet" href="./stylesheets/poem.css" type="text/css" />
+        <link rel="stylesheet" href="./stylesheets/popup.css" type="text/css" />
+    </head>
+    <body>
+        <div class="main">
+          <div class="header-container">
+              <div class="header">
+                <h1>NONAME PROJECT</h1>
+                <h3>Everyone could be an Artist</h3>
+              </div>
+              <div class="nav-bar">
+                <ul class="nav">
+                  <li class="nav-item" id="select-tab">
+                    <span class="nav-link">SELECT</span>
+                  </li>
+                  <li class="nav-item">
+                    <a href="index.html" class="nav-link">PICTURES</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#contact" class="nav-link">CONTACT</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="container hidden" id="main-container">
+              <div class="select">
+                <div class="tag">
+                  <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">#</span>
+                    <input type="text" class="form-control" placeholder="Tags" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <div class="tag-select">
+                  <span class="tag-select-child">art</span>
+                  <span class="tag-select-child">red</span>
+                  <span class="tag-select-child">modern</span>
+                  <span class="tag-select-child">nature</span>
+                  <span class="tag-select-child">portrait</span>
+                  <span class="tag-select-child">mother</span>
+                  <span class="tag-select-child">blue</span>
+                  <span class="tag-select-child">purple</span>
+                  <span class="tag-select-child">contemporary</span>
+                  <span class="tag-select-child">abstract</span>
+                  <span class="tag-select-child">culture</span>
+                  <span class="tag-select-child">amateur</span>
+                  <span class="tag-select-child">realism</span>
+                  <span class="tag-select-child">paint</span>
+                  <span class="tag-select-child">pencil</span>
+                  <span class="tag-select-child">ink</span>
+                  <span class="tag-select-child">brush</span>
+                  <span class="tag-select-child">sculpture</span>
+                  <span class="tag-select-child">black</span>
+                  <span class="tag-select-child">gray</span>
+                  <span class="tag-select-child">emotions</span>
+                  <span class="tag-select-child">friend</span>
+                  <span class="tag-select-child">new</span>
+                </div>
+            </div>
+          </div>
+          
+          <div class="poem-container">
+              <div id="data-container"></div>
+              <div id="pagination-container"></div>
+          </div>
+          
+          <div class="footer" id="contact" style="background: #fff">
+            <h3>Contact us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, eaque esse mollitia saepe commodi architecto officiis molestiae voluptate consectetur doloremque!</p>
+          </div>
+        </div>
+        
+        <div class="popup-container hidden">
+          <div class="container">
+            <div class="img-container">
+              <img class="image"></img>
+            </div>
+            <div class="poem">
+            </div>
+            <div class="metadata">
+              <p class="artist">
+                <strong>Artist:</strong>
+                <span></span>
+              </p>
+              <p class="desc">
+                <strong>Description:</strong>
+                <span></span>
+              </p>
+            </div>
+          </div>
+          <div class="zoombtn hidden">
+            <button class="btn zoom-in-sub">+</button>
+            <button class="btn zoom-out-sub">-</button>
+          </div>
+          <div class="closebtn hidden">
+            <i class="fa fa-times-circle" aria-hidden="true"></i>
+          </div>
+          <div class="arrowbtn">
+            <i class="fa fa-angle-left prev" aria-hidden="true"></i>
+            <i class="fa fa-angle-right next" aria-hidden="true"></i>
+          </div>
+          <div class="backbtn">
+            <i class="fa fa-chevron-circle-left back" aria-hidden="true"></i>
+          </div>
+        </div>
+        
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.0/pagination.min.js"></script>
+        <script type="text/javascript" src="./scripts/index.js"></script>
+        <script type="text/javascript" src="./scripts/poem.js"></script>
+    </body>
+</html>
