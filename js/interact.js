@@ -78,6 +78,7 @@ $(".expand").on("click", function(){
   $(".description").addClass("hidden");
   $(".footer").addClass("hidden");
   $(".bar-icon").removeClass("hidden");
+  $("#main-container").addClass("hidden");
 });
 
 $(".compress").on("click", function(){
@@ -97,6 +98,7 @@ $(".compress").on("click", function(){
   $(".description").removeClass("hidden");
   $(".footer").removeClass("hidden");
   $(".bar-icon").addClass("hidden");
+  $("#main-container").removeClass("hidden");
 });
 
 $(".bar-icon").on("click", function(){
